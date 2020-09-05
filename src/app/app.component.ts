@@ -38,8 +38,8 @@ export class AppComponent implements OnInit {
       icon: 'trash'
     },
     {
-      title: 'Spam',
-      url: '/folder/Spam',
+      title: 'Contact',
+      url: '/contact',
       icon: 'warning'
     }
   ];

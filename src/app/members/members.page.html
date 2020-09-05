@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>members</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button [routerLink]="['/contact']">Go to Contact</ion-button>
+
+  <label>Member Name:
+    <input #memberName />
+  </label>
+  <ion-button (click)="add(memberName.value); memberName.value=''">Add Member</ion-button>
+
+  <div *ngIf="selectedMember">
+    <h2>{{selectedMember.name}}</h2>
+    <ion-input [(ngModel)]="selectedMember.name"></ion-input>
+    <ion-button (click)="getName('name')">Get Name Record</ion-button>
+  </div>
+<!--
+  <ion-card *ngFor="let note of notes" [class.selected]="member === selectedMember">
+    <ion-card-header>
+      <ion-card-subtitle>{{note.icon}}</ion-card-subtitle>
+      <ion-card-title>{{note.title | uppercase}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      {{note.note}}
+    </ion-card-content>
+  </ion-card>
+-->
+
+  <ion-card *ngFor="let member of members" [class.selected]="member === selectedMember" >
+    <ion-card-header>
+      <ion-card-subtitle>{{member.id}}</ion-card-subtitle>
+      <ion-card-title>{{member.name | uppercase}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-button (click)="delete(member)">Delete Member</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
